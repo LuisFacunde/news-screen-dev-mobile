@@ -6,12 +6,22 @@ Repositório para a disciplina utilizando React Native e Expo, escrito em TypeSc
 
 Aplicativo mobile multiplataforma (iOS, Android e Web) desenvolvido com **React Native** e **Expo SDK 54** no contexto da disciplina de Desenvolvimento Mobile 2026/1.
 
+Este é um aplicativo que exibe uma lista de itens de notícias, com suporte a temas claro e escuro. O usuário pode alternar entre os temas usando o interruptor no cabeçalho.
+
 - **Linguagem:** TypeScript 5.9 (strict mode)
 - **Framework:** React Native 0.81.5 + Expo ~54.0.33
 - **Roteamento:** expo-router v6 (file-based routing)
 - **Navegação:** @react-navigation/bottom-tabs
 - **New Architecture:** Habilitada (Fabric + TurboModules)
 - **Deep linking scheme:** `dm20261ts`
+
+## Funcionalidades
+
+- Exibição de lista de notícias em uma FlatList
+- Suporte a temas claro e escuro
+- Interface responsiva e acessível
+- Navegação baseada em arquivo com expo-router
+- Ícones personalizados para cada notícia
 
 ## Pré-requisitos
 
@@ -48,54 +58,40 @@ Após iniciar, escaneie o QR code com o **Expo Go** (Android/iOS) ou pressione `
 ## Estrutura do projeto
 
 ```
-dm-2026-1-ts/
-├── app/              # Telas e rotas (expo-router file-based routing)
-│   ├── (tabs)/       # Navegação por abas (tab layout)
-│   └── _layout.tsx   # Layout raiz
-├── components/       # Componentes reutilizáveis
-│   └── ui/           # Componentes UI de baixo nível
-├── hooks/            # Custom React hooks
-├── constants/        # Constantes (tema, cores, etc.)
-├── assets/images/    # Ícones, splash screen e imagens estáticas
-├── app.json          # Configuração do Expo (nome, slug, ícones, experimentos)
-├── tsconfig.json     # Configuração TypeScript (strict mode)
-├── eslint.config.js  # ESLint flat config
-├── AGENTS.md         # Guia para coding agents
-└── package.json      # Dependências e scripts
+app/                  # Telas/páginas (roteamento baseado em arquivo expo-router)
+  (tabs)/             # Grupo de navegação por abas
+  _layout.tsx         # Layout raiz
+components/           # Componentes de UI reutilizáveis (exportações nomeadas)
+  ui/                 # Componentes de UI de nível inferior/primitivos
+constants/            # Configurações e constantes de tema
+hooks/                # Hooks customizados do React (um hook por arquivo)
+assets/images/        # Ativos de imagem estáticos
+data/                 # Dados estáticos ou tipos de dados
+scripts/              # Scripts utilitários (JS)
 ```
 
-> **Path alias:** `@/*` mapeia para a raiz do projeto. Use sempre para imports internos:
-> ```typescript
-> import { ThemedText } from '@/components/themed-text';
-> import { Colors } from '@/constants/theme';
-> ```
+## Tecnologias Utilizadas
 
-## Dependências principais
+- **React Native 0.81.5**: Framework para desenvolvimento mobile
+- **Expo SDK 54**: Plataforma para React Native
+- **TypeScript 5.9**: Linguagem com tipagem estática
+- **expo-router v6**: Roteamento baseado em arquivo
+- **@react-navigation/bottom-tabs**: Navegação por abas
+- **@expo/vector-icons**: Ícones do Material Icons
+- **react-native-safe-area-context**: Gerenciamento de áreas seguras
 
-| Pacote                          | Versão    | Finalidade                              |
-| ------------------------------- | --------- | --------------------------------------- |
-| `expo`                          | ~54.0.33  | SDK principal do Expo                   |
-| `expo-router`                   | ~6.0.23   | Roteamento file-based                   |
-| `react`                         | 19.1.0    | React core                              |
-| `react-native`                  | 0.81.5    | Runtime iOS e Android                   |
-| `react-native-web`              | ~0.21.0   | Suporte à plataforma Web                |
-| `@react-navigation/bottom-tabs` | ^7.4.0    | Navegação por abas                      |
-| `react-native-reanimated`       | ~4.1.1    | Animações performáticas                 |
-| `typescript`                    | ~5.9.2    | Suporte TypeScript com strict mode     |
-| `eslint`                        | ^9.25.0   | Linting com eslint-config-expo          |
+## Testes
 
-## Experimentos ativados
+Nenhuma estrutura de teste está configurada atualmente. Não há arquivos de teste, executores de teste ou dependências de teste. Se testes forem adicionados no futuro, atualize esta seção com os comandos relevantes (ex.: `npm test`).
 
-- **Typed routes:** Rotas e params são type-checked pelo TypeScript
-- **React Compiler:** Otimizações automáticas no build (experimental)
+## Contribuição
 
-## Recursos
+1. Faça um fork do projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/nova-feature`)
+3. Commit suas mudanças (`git commit -am 'Adiciona nova feature'`)
+4. Push para a branch (`git push origin feature/nova-feature`)
+5. Abra um Pull Request
 
-- **New Architecture habilitada:** Fabric renderer + TurboModules para melhor performance
-- **Strict TypeScript:** `strict: true` no tsconfig.json
-- **ESLint v9:** Flat config com eslint-config-expo
-- **VSCode auto-organize:** Imports organizados automaticamente ao salvar
+## Licença
 
----
-
-Para informações detalhadas sobre convenções de código e guidelines para coding agents, consulte o arquivo [AGENTS.md](./AGENTS.md).
+Este projeto é para fins educacionais e não possui licença específica.

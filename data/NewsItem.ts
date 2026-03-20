@@ -44,18 +44,4 @@ export const NEWS_ITEM: NewsItem[] = [
         time: "08:20",
         icon: "smart-toy",
     },
-    {
-        id: 6,
-        title: "Nova falha de segurança expõe milhares de servidores na nuvem",
-        date: "13/03/2026",
-        time: "07:45",
-        icon: "security",
-    },
-    {
-        id: 7,
-        title: "Frameworks Serverless ganham popularidade entre startups",
-        date: "12/03/2026",
-        time: "15:10",
-        icon: "cloud",
-    },
 ];
