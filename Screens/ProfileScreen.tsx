@@ -15,8 +15,18 @@ import { ThemeSwitch } from "@/components/ThemeSwitch";
 export default function ProfileScreen() {
    const router = useRouter();
    const [isDark, setIsDark] = useState(false);
+   const [imageIndex, setImageIndex] = useState(0);
    const backgroundColorHeader = isDark ? "#0f172a" : "#ffffff";
    const borderColorHeader = isDark ? "#1e293b" : "#E2E8F0";
+
+   const images = [
+      require("@/assets/images/foto-perfil-gemini.png"),
+      require("@/assets/images/black-man.png"),
+   ];
+
+   const toggleImage = () => {
+      setImageIndex((prev) => (prev + 1) % images.length);
+   };
 
    return (
       <SafeAreaView
@@ -45,13 +55,13 @@ export default function ProfileScreen() {
                { backgroundColor: isDark ? "#020817" : "#f0f9ff" },
             ]}
          >
-            <Image
-               source={require("@/assets/images/foto-perfil-gemini.png")}
-               style={styles.image}
-            />
-            <Text
-               style={[styles.label, { color: isDark ? "#fff" : "#1e293b" }]}
-            >
+            {/* foto  */}
+            <Pressable onPress={toggleImage} >
+               <Image source={images[imageIndex]} style={styles.image} />
+            </Pressable>
+
+            {/* barra de texto */}
+            <Text style={[styles.label, { color: isDark ? "#fff" : "#1e293b" }]}>
                Nome Completo
             </Text>
             <TextInput
@@ -152,6 +162,13 @@ const styles = StyleSheet.create({
       borderWidth: 3,
       borderColor: "#669bbc",
       marginBottom: 56,
+   },
+   buttonAlterImage: {
+      color: "#fff",
+      fontSize: 16,
+      fontWeight: "600",
+      textAlign: "center",
+      padding: 5,
    },
    buttonContent: {
       paddingVertical: 10,
