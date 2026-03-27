@@ -18,6 +18,7 @@ Este é um aplicativo que exibe uma lista de itens de notícias, com suporte a t
 ## Funcionalidades
 
 - Exibição de lista de notícias em uma FlatList
+- Tela de perfil com toggle entre duas imagens via botão
 - Suporte a temas claro e escuro
 - Interface responsiva e acessível
 - Navegação baseada em arquivo com expo-router
@@ -59,15 +60,20 @@ Após iniciar, escaneie o QR code com o **Expo Go** (Android/iOS) ou pressione `
 
 ```
 app/                  # Telas/páginas (roteamento baseado em arquivo expo-router)
-  (tabs)/             # Grupo de navegação por abas
   _layout.tsx         # Layout raiz
+  index.tsx           # Tela inicial
+  news.tsx            # Rota para tela de notícias
+  profile.tsx         # Rota para tela de perfil
 components/           # Componentes de UI reutilizáveis (exportações nomeadas)
-  ui/                 # Componentes de UI de nível inferior/primitivos
-constants/            # Configurações e constantes de tema
-hooks/                # Hooks customizados do React (um hook por arquivo)
-assets/images/        # Ativos de imagem estáticos
+  Header.tsx          # Cabeçalho personalizado
+  NewsCard.tsx        # Cartão de notícia
+  ThemeSwitch.tsx     # Interruptor de tema
 data/                 # Dados estáticos ou tipos de dados
-scripts/              # Scripts utilitários (JS)
+  NewsItem.ts         # Tipo de dados para itens de notícia
+Screens/              # Telas adicionais (ex.: ProfileScreen.tsx)
+  NewsScreen.tsx      # Tela de notícias
+  ProfileScreen.tsc   # Tela de perfil
+assets/images/        # Ativos de imagem estáticos
 ```
 
 ## Tecnologias Utilizadas
